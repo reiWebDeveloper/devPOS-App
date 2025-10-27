@@ -1,0 +1,20 @@
+$icon-color: red;
+$icon-size: 64px;
+
+.headerContent {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon {
+    width: $icon-size;
+    height: $icon-size;
+    border-radius: 50%;
+    background-color: $icon-color;
+}
+
+.items {
+    width: 195px;
+    height: 195px;
+    background-color: aquamarine;
+}
