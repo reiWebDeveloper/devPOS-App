@@ -1,3 +1,35 @@
-<header>
-  <h1>Bar Menu</h1>
-</header>
+<div class="container">
+  <header>
+    <div class="headerContent">
+      <div class="icon"></div>
+      <div class="mcCafee menu">
+        <h3>Mc Cafee</h3>
+        <p>menu</p>
+      </div>
+      <div class="switch"></div>
+    </div>
+
+    <div class="navigationHolder">
+      <nav>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="item">
+      <p class="unit-price">165<span> Leke</span></p>
+      <p class="first-letter">K</p>
+      <p class="product name" *ngFor="let item of items">{{item.name}}</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footerMsg">
+      <p>mundesuar nga</p>
+    </div>
+  </footer>
+</div>
