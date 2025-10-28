@@ -25,10 +25,12 @@
 
   <div class="main">
 
+
     <div class="item" *ngFor="let product of selectedCategory?.products">
       <p class="unit-price"><!--Unit Price-->{{ product.unitPrice }}<span> Leke</span></p>
       <div class="first-letter">{{ product.name.charAt(0) }}</div>
       <p class="product name"><!--product name--> {{ product.name }}</p>
+
 
     </div>
   </div>

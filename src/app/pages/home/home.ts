@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from '../../data';
 import { CommonModule } from '@angular/common';
+
 import { Category } from '../../models/menu.model';
+
 
 @Component({
   selector: 'app-home',
@@ -11,12 +13,15 @@ import { Category } from '../../models/menu.model';
   styleUrl: './home.scss',
 })
 export class Home implements OnInit{
+
   categories: Category[] = [];
   selectedCategory: Category |  null = null;
+
 
   constructor (private data: Data) {}
 
   ngOnInit(): void {
+
     this.data.getData().subscribe({
       next: (d)=> {
         this.categories = d.categories;
@@ -33,3 +38,4 @@ export class Home implements OnInit{
     this.selectedCategory = category;
   }
 }
+

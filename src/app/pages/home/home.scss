@@ -24,6 +24,7 @@ $font: 'Helvetica', sans-serif;
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
 }
 
 .navigationBar {
@@ -58,4 +59,5 @@ $font: 'Helvetica', sans-serif;
         color: #F44242;
         cursor: pointer;
     }
+
 }
