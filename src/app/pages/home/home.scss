@@ -1,5 +1,6 @@
 $icon-color: red;
 $icon-size: 64px;
+$font: 'Helvetica', sans-serif;
 
 .headerContent {
     display: flex;
@@ -13,8 +14,48 @@ $icon-size: 64px;
     background-color: $icon-color;
 }
 
-.items {
+
+.item {
     width: 195px;
     height: 195px;
     background-color: aquamarine;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.navigationBar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-decoration: none;
+    list-style-type: none;
+    background-color: #999999;
+    padding: 5px;
+}
+
+.navigationBar {
+    li {
+        text-transform: uppercase;
+        font-family: 'Helvetica', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        width: max-content;
+        color: #333333;
+    }
+}
+
+.navigationBar {
+    li:active {
+        color: #F44242;
+    }
+}
+
+.navigationBar {
+    li:hover {
+        color: #F44242;
+        cursor: pointer;
+    }
 }
