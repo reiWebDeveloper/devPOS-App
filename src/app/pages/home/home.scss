@@ -13,6 +13,7 @@ $icon-size: 64px;
     background-color: $icon-color;
 }
 
+
 .item {
     width: 195px;
     height: 195px;
@@ -22,4 +23,5 @@ $icon-size: 64px;
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
 }
