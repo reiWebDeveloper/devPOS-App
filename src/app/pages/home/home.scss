@@ -28,6 +28,8 @@ $font-weight: 700;
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -39,15 +41,17 @@ $font-weight: 700;
     list-style-type: none;
     background-color: #999999;
     padding: 5px;
+    margin: 0;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .navigationBar {
     li {
         text-transform: uppercase;
-
+        text-align: center;
         font-family: $font;
         font-weight: $font-weight;
-
         font-size: 20px;
         width: max-content;
         color: #333333;
