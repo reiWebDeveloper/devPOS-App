@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '../../data';
 import { CommonModule } from '@angular/common';
 
+import { Category } from '../../model/menu.model';
+
+
 @Component({
   selector: 'app-home',
   imports: [CommonModule],
@@ -10,18 +13,28 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.scss',
 })
 export class Home implements OnInit{
-[x: string]: any;
-  items: any[] = [];
+
+  categories: Category[] = [];
+  selectedCategory: Category |  null = null;
+
 
   constructor (private data: Data) {}
 
   ngOnInit(): void {
-    this.data.getData().subscribe(
-      response=> {
-        console.log('Response from API:', response);
-      this.items = response.categories[0]?.products ?? [];
+
+    this.data.getData().subscribe({
+      next: (d)=> {
+        this.categories = d.categories;
       },
-      error=> console.error('Error fetching data:', error)
+      error: (err)=> {
+        console.error('Error loading menu data:', err);
+      }
+    }
+      
     );
+  }
+
+  selectCategory(category: Category): void {
+    this.selectedCategory = category;
   }
 }

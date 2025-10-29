@@ -11,21 +11,24 @@
 
     <div class="navigationHolder">
       <nav>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <ul class="navigationBar">
+          <li
+            *ngFor="let category of categories"
+            (click)="selectCategory(category)"
+            [class.active]="selectedCategory?.id === category.id"> <!--Category Name-->
+            {{category.name}}
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 
   <div class="main">
-
-    <div class="item">
-      <p class="unit-price">165<span> Leke</span></p>
-      <p class="first-letter">K</p>
-      <p class="product name" *ngFor="let item of items">{{item.name}}</p>
-
+    <!--Product container-->
+    <div class="item" *ngFor="let product of selectedCategory?.products">
+      <p class="unitPriceContainer"><span class="unit-price"><!--Unit Price-->{{ product.unitPrice }}</span><span id="unitCurrency"> lekë</span> </p>
+      <div class="first-letter">{{ product.name.charAt(0) }}</div>
+      <p class="product-name"><!--Product Name--> {{ product.name }}</p>
     </div>
   </div>
 
