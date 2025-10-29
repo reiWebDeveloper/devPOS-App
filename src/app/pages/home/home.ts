@@ -25,6 +25,10 @@ export class Home implements OnInit{
     this.data.getData().subscribe({
       next: (d)=> {
         this.categories = d.categories;
+        // Automatically show the first category
+        if (this.categories.length > 0) {
+          this.selectedCategory = this.categories[0];
+        }
       },
       error: (err)=> {
         console.error('Error loading menu data:', err);
@@ -34,8 +38,16 @@ export class Home implements OnInit{
     );
   }
 
-  selectCategory(category: Category): void {
+  selectCategory(category: Category, event?: Event): void {
     this.selectedCategory = category;
-  }
-}
 
+    // Move the selected element to start
+    const target = (event?.target as HTMLElement);
+    target?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'start'
+    });
+  }
+
+}
