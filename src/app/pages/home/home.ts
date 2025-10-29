@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from '../../data';
 import { CommonModule } from '@angular/common';
-
 import { Category } from '../../model/menu.model';
+
 
 
 @Component({
@@ -37,4 +37,6 @@ export class Home implements OnInit{
   selectCategory(category: Category): void {
     this.selectedCategory = category;
   }
+
 }
+

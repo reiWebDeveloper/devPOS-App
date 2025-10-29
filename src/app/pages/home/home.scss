@@ -1,7 +1,9 @@
 $red-color: #F44242;
 $icon-size: 64px;
 $font: 'Helvetica', sans-serif;
+
 $font-weight: 700;
+
 
 .headerContent {
     display: flex;
@@ -42,8 +44,10 @@ $font-weight: 700;
 .navigationBar {
     li {
         text-transform: uppercase;
+
         font-family: $font;
         font-weight: $font-weight;
+
         font-size: 20px;
         width: max-content;
         color: #333333;
@@ -51,6 +55,7 @@ $font-weight: 700;
 }
 
 .navigationBar {
+
     li:hover {
         color: $red-color;
         cursor: pointer;
@@ -100,4 +105,5 @@ $font-weight: 700;
     font-family: 'Londrina Outline', sans-serif;
     font-size: 104px;
     transform: rotate(17.11deg);
+
 }

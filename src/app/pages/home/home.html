@@ -24,11 +24,13 @@
   </header>
 
   <div class="main">
+
     <!--Product container-->
     <div class="item" *ngFor="let product of selectedCategory?.products">
       <p class="unitPriceContainer"><span class="unit-price"><!--Unit Price-->{{ product.unitPrice }}</span><span id="unitCurrency"> lekë</span> </p>
       <div class="first-letter">{{ product.name.charAt(0) }}</div>
       <p class="product-name"><!--Product Name--> {{ product.name }}</p>
+
     </div>
   </div>
 
