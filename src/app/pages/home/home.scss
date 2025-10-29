@@ -1,28 +1,58 @@
 $red-color: #F44242;
 $icon-size: 64px;
 $font: 'Helvetica', sans-serif;
-
 $font-weight: 700;
-
 
 .headerContent {
     display: flex;
     flex-direction: row;
-}
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 46px;
+    margin-bottom: 10px;
+    padding: 10px;
 
-.icon {
-    width: $icon-size;
-    height: $icon-size;
-    border-radius: 50%;
-    background-color: $red-color;
-}
+    .icon-menuContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .icon {
+        width: $icon-size;
+        height: $icon-size;
+        border-radius: 50%;
+        background-color: $red-color;
+    }
 
+    .mcCafee-menu {
+        margin-left: 20px;
+    }
 
-.item {
-    width: 195px;
-    height: 195px;
-    background-color: aquamarine;
-    position: relative;
+    .mcCafee-menu h3 {
+        font-family: $font;
+        font-weight: $font-weight;
+        font-size: 24px;
+        color: #333333;
+        margin: 0 0 10px 0;
+    }
+
+    .mcCafee-menu p {
+        font-family: $font;
+        font-weight: 300;
+        font-size: 17px;
+        margin: 0;
+        color: #333333;
+    }
+
+    .switch {
+        width: 30px;
+        height: 30px;
+        border: 5px solid black;
+        border-radius: 50%;
+        background-image: linear-gradient(black 50%, white 50%);
+        transform: rotate(-35deg);
+    }
 }
 
 .main {
@@ -30,7 +60,13 @@ $font-weight: 700;
     grid-template-columns: 1fr 1fr;
     margin: 0;
     padding: 0;
+}
 
+.item {
+    width: 195px;
+    height: 195px;
+    background-color: aquamarine;
+    position: relative;
 }
 
 .navigationBar {
@@ -40,10 +76,15 @@ $font-weight: 700;
     text-decoration: none;
     list-style-type: none;
     background-color: #999999;
-    padding: 5px;
+    padding: 15px;
     margin: 0;
+    //make the navigation menu scroallable
     overflow: auto;
     white-space: nowrap;
+    //remove the scrollbar
+    &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .navigationBar {
