@@ -16,7 +16,7 @@
         <ul class="navigationBar">
           <li
             *ngFor="let category of categories"
-            (click)="selectCategory(category)"
+            (click)="selectCategory(category, $event)"
             [class.active]="selectedCategory?.id === category.id"> <!--Category Name-->
             {{category.name}}
           </li>
