@@ -1,0 +1,88 @@
+@use '../../../variables.scss' as*;
+$font-size: 24px;
+:host {
+  position: fixed; //to overlay everything
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  z-index: 1000;
+}
+
+.billContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 390px;
+    height: 465px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    text-transform: uppercase;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.itemName, .textTotal, .number {
+    font-family: $font;
+    color: #666666;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    direction: rtl;
+}
+
+.itemName, .textTotal {
+    margin: 0 45px 0 5px;
+}
+
+.line {
+    width: inherit;
+    margin: 0 50px;
+    height: 2px;
+    background-color: black;
+}
+.quantity {
+    width: 90px;
+    height: 42px;
+    background-color: rgba(223, 221, 221, 0.842);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.textTotalPrice {
+    margin: 0 0 0 35px;
+}
+
+
+.prodPrice, .textTotalPrice {
+    font-family: $font;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $red-color;
+}
+
+.btn {
+    width: 359px;
+    height: 51px;
+    background-color: $red-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 40px;
+
+    .textBtn {
+        text-transform: uppercase;
+        font-family: $font;
+        font-size: $font-size;
+        font-weight: $font-weight;
+    }
+}

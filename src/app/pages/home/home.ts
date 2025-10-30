@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '../../data';
 import { CommonModule } from '@angular/common';
 import { Category } from '../../models/menu.model';
+import { Bill } from '../../components/bill/bill';
 
 
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, Bill],
   standalone: true,
   templateUrl: './home.html',
   styleUrl: './home.scss',
@@ -49,6 +50,18 @@ export class Home implements OnInit{
       block: 'nearest',
       inline: 'start'
     });
+  }
+
+  //display the cart
+  isShow = false;
+  displayCart() {
+    this.isShow = true;
+  }
+
+  //display the bill
+  isBillVisible = false;
+  displayBill() {
+    this.isBillVisible = !this.isBillVisible;
   }
 
 }
