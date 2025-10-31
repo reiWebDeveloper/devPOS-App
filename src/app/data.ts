@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { MenuData } from './models/menu.model';
 
 
-
 @Injectable({
   providedIn: 'root'
 })

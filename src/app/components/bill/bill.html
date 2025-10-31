@@ -1,1 +1,16 @@
-<p>bill works!</p>
+<div class="billContainer">
+    <div class="main grid" *ngFor="let product of billService.getData()">
+        <p class="itemName">{{product.name}}</p>
+        <div class="quantity"><p class="number">1</p></div>
+        <p class="prodPrice">{{product.unitPrice}}</p>
+    </div>
+    <div class="line"></div>
+    <div class="main grid">
+        <p class="textTotal">totali</p>
+        <p class="text"></p>
+        <p class="textTotalPrice">{{ totalPrice }}</p>
+    </div>
+    <div class="btn">
+        <p class="textBtn">Dërgo Faturën</p>
+    </div>
+</div>

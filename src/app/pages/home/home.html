@@ -28,19 +28,28 @@
   <div class="main">
 
     <!--Product container-->
-    <div class="item" *ngFor="let product of selectedCategory?.products">
-      <p class="unitPriceContainer"><span class="unit-price"><!--Unit Price-->{{ product.unitPrice }}</span><span id="unitCurrency"> lekë</span> </p>
+    <div class="item" *ngFor="let product of selectedCategory?.products" (click)="addDataFromBillService(product); displayCart()">
+      <p class="unitPriceContainer"><span class="unit-price"><!--Product Price-->{{ product.unitPrice }}</span><span id="unitCurrency"> lekë</span> </p>
       <div class="first-letter">{{ product.name.charAt(0) }}</div>
       <p class="product-name"><!--Product Name--> {{ product.name }}</p>
 
     </div>
   </div>
 
+  <div class="cart-shadow" *ngIf="billService.getData().length > 0 && isShow" (click)=displayBill()>
+    <div class="cart">
+      <span>{{ billService.getData().length }}</span>
+    </div>
+  </div>
+
   <footer>
 
     <div class="footerMsg">
-      <p>mundesuar nga</p>
+      <p>mundësuar nga</p>
     </div>
 
   </footer>
 </div>
+
+<!-- Overlay Bill -->
+ <app-bill *ngIf="isBillVisible"></app-bill>
