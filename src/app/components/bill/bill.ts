@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../models/menu.model';
 import { BillService } from '../../services/billService';
 
 @Component({

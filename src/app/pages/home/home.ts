@@ -6,6 +6,7 @@ import { Bill } from '../../components/bill/bill';
 import { Product } from '../../models/menu.model';
 import { BillService } from '../../services/billService';
 
+
 @Component({
   selector: 'app-home',
   imports: [CommonModule, Bill],
