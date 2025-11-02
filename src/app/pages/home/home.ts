@@ -19,7 +19,7 @@ export class Home implements OnInit{
   categories: Category[] = [];
   selectedCategory: Category | null = null;
 
-  // Initialize the Object
+  // initialize the Object
   constructor (private data: Data, public billService: BillService) {}
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class Home implements OnInit{
     this.data.getData().subscribe({
       next: (d)=> {
         this.categories = d.categories;
-        // Automatically show the first category
+        // show the first category
         if (this.categories.length > 0) {
           this.selectedCategory = this.categories[0];
         }
@@ -43,7 +43,7 @@ export class Home implements OnInit{
   selectCategory(category: Category, event?: Event): void {
     this.selectedCategory = category;
 
-    // Move the selected element to start
+    // move the selected element to start with scrollIntoView() method
     const target = (event?.target as HTMLElement);
     target?.scrollIntoView({
       behavior: 'smooth',
@@ -69,6 +69,39 @@ export class Home implements OnInit{
   isBillVisible = false;
   displayBill() {
     this.isBillVisible = true;
+  }
+
+  // getter for checking if bill should show
+  get shouldShowBill(): boolean {
+    const hasItems = this.billService.getData().length > 0;
+    // reset the flag when cart empties
+    if (!hasItems) {
+      this.isBillVisible = false;
+    }
+    return this.isBillVisible && hasItems;
+  }
+
+  // generate the colors function
+  private colorPalette = [
+    '#ff6b6bb5',
+    '#4ECDC4',
+    '#45B7D1',
+    '#FFA07A',
+    '#98D8C8',
+    '#F7DC6F',
+    '#BB8FCE',
+    '#85C1E2',
+    '#F8B739',
+    '#6C5CE7'
+  ];
+
+  getProductColor(index: number): string {
+    // cycle through colors if there are more products than colors
+    while (index >= this.colorPalette.length) {
+      // make the index smaller if array length (item list) is bigger
+      index = index - this.colorPalette.length;
+    }
+    return this.colorPalette[index];
   }
 
 }

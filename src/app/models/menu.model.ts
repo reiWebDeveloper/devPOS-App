@@ -13,3 +13,8 @@ export interface Category {
 export interface MenuData {
     categories: Category[];
 }
+
+export interface CartItem {
+    product: Product;
+    quantity: number;
+}

@@ -28,7 +28,9 @@
   <div class="main">
 
     <!--Product container-->
-    <div class="item" *ngFor="let product of selectedCategory?.products" (click)="addDataFromBillService(product); displayCart()">
+    <div class="item"
+        *ngFor="let product of selectedCategory?.products; let i = index" (click)="addDataFromBillService(product); displayCart()"
+        [style.background-color]="getProductColor(i)">
       <p class="unitPriceContainer"><span class="unit-price"><!--Product Price-->{{ product.unitPrice }}</span><span id="unitCurrency"> lekë</span> </p>
       <div class="first-letter">{{ product.name.charAt(0) }}</div>
       <p class="product-name"><!--Product Name--> {{ product.name }}</p>
@@ -36,9 +38,10 @@
     </div>
   </div>
 
-  <div class="cart-shadow" *ngIf="billService.getData().length > 0 && isShow" (click)=displayBill()>
+  <!--Cart Icon element-->
+  <div class="cart-shadow" *ngIf="billService.getData().length > 0 && isShow" (click)="displayBill()">
     <div class="cart">
-      <span>{{ billService.getData().length }}</span>
+      <span>{{ billService.getTotalItems() }}</span>
 
     </div>
   </div>
@@ -53,4 +56,4 @@
 </div>
 
 <!-- Overlay Bill -->
- <app-bill *ngIf="isBillVisible"></app-bill>
+ <app-bill *ngIf="shouldShowBill"></app-bill>

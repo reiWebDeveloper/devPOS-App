@@ -1,9 +1,15 @@
 <div class="billContainer">
 
-    <div class="main grid" *ngFor="let product of billService.getData()">
-        <p class="itemName">{{product.name}}</p>
-        <div class="quantity"><p class="number">1</p></div>
-        <p class="prodPrice">{{product.unitPrice}}</p>
+    <div class="main grid" *ngFor="let item of billService.getData()">
+        <p class="itemName">{{item.product.name}}</p>
+        
+        <div class="quantity">
+            <div class="decrease" (click)="billService.decreaseQuantity(item.product)">-</div>
+            <p class="number">{{item.quantity}}</p>
+            <div class="increase" (click)="billService.increaseQuantity(item.product)">+</div>
+        </div>
+
+        <p class="prodPrice">{{item.product.unitPrice*item.quantity}}</p>
 
     </div>
     <div class="line"></div>

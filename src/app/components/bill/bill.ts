@@ -13,10 +13,9 @@ export class Bill {
 
   constructor(public billService: BillService) {}
 
-  //add total function
-  // getter to calculate total dynamically
+  //total function
   get totalPrice(): number {
-    return this.billService.getData().reduce((sum, product) => sum + product.unitPrice, 0);
+    return this.billService.getData().reduce((sum, item) => sum + item.product.unitPrice*item.quantity, 0);
   }
 
 }

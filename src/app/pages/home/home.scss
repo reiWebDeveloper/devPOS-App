@@ -55,7 +55,7 @@
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0 0 62px 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -100,32 +100,6 @@
     }
 }
 
-
-
-.unitPriceContainer {
-    font-family: $font;
-    font-size: 18px;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 5px 5px 0 0;
-
-        .unit-price {
-        color: $red-color; 
-        font-weight: $font-weight;
-        font-size: 21px;
-
-    }
-    #unitCurrency {
-        color: #666666;
-        font-family: $font;
-        font-weight: 300;
-    }
-    
-}
-
 .product-name {
     position: absolute;
     left: 0;
@@ -158,7 +132,7 @@
     right: 0;
     margin: 5px 5px 0 0;
 
-        .unit-price {
+    .unit-price {
         color: $red-color; 
         font-weight: $font-weight;
         font-size: 21px;
@@ -169,28 +143,6 @@
         font-weight: 300;
     }
     
-}
-
-.product-name {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    font-family: $font;
-    font-weight: $font-weight;
-    color: #333333;
-    font-size: 24px;
-    margin: 5px;
-    text-transform: uppercase;
-}
-
-.first-letter {
-    position: absolute;
-    top: 6px;
-    left: 16px;
-    font-family: 'Londrina Outline', sans-serif;
-    font-size: 104px;
-    transform: rotate(17.11deg);
-
 }
 
 .cart-shadow {
