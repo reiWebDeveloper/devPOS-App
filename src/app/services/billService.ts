@@ -20,19 +20,20 @@ export class BillService {
         }
     }
 
-    //getter function
+    //getter function return the full array of items
     getData(): CartItem[] {
         return this.items;
     }
 
-    // get total items
+    //return the sum of quantities (total count)
     getTotalItems(): number {
+        //take the array and sum it in a single value
         return this.items.reduce((sum, item) => sum + item.quantity, 0);
     }
 
     //increase quantity function
     increaseQuantity(product: Product): void {
-        //iterate through the array
+        //iterate through the array and find if a product already exists
         const item = this.items.find(i => i.product.name === product.name);
         if (item) {
             //add qunatity
@@ -57,10 +58,12 @@ export class BillService {
 
     //remove function
     removeItem(product: Product): void {
+        // find the position of a product so the removal can happen
         const index = this.items.findIndex(i => i.product.name === product.name);
         if (index > -1) {
-            //remove from the array
+            //remove one product at index from the array
             this.items.splice(index, 1);
         }
+        //-1 means that the product is not found and it cannot be removed
     }
 }
