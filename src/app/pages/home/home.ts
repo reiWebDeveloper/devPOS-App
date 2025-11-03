@@ -18,6 +18,7 @@ export class Home implements OnInit{
 
   categories: Category[] = [];
   selectedCategory: Category | null = null;
+  isDarkMode = false; 
 
   // initialize the Object
   constructor (private data: Data, public billService: BillService) {}
@@ -40,6 +41,18 @@ export class Home implements OnInit{
     );
   }
 
+  /* dark mode toggle
+  darkModeFunction() : void {
+    this.isDarkMode = !this.isDarkMode;
+    const container = document.querySelector('.container');
+
+    if (this.isDarkMode) {
+      container?.classList.add('dark-mode');
+    } else {
+      container?.classList.remove('dark-mode');
+    }
+  }*/
+
   selectCategory(category: Category, event?: Event): void {
     this.selectedCategory = category;
 
@@ -53,14 +66,19 @@ export class Home implements OnInit{
   }
 
   // keeps track of which product have been clicked
-  selectedProducts: Set<number> = new Set();
+  selectedProducts: Set<string> = new Set();
 
   toggleProductSelection(product: Product, index: number): void {
     this.addDataFromBillService(product);
     this.displayCart();
 
     // to mark the product as selected
-    this.selectedProducts.add(index);
+    this.selectedProducts.add(product.name);
+  }
+
+  // to check if is selected
+  isProductSelected(product: Product): boolean {
+    return this.selectedProducts.has(product.name);
   }
 
   addDataFromBillService (product: Product) {
@@ -80,13 +98,23 @@ export class Home implements OnInit{
     this.isBillVisible = true;
     // remove all gray overlays
     this.selectedProducts.clear();
+    // disable body scroll
+    document.body.style.overflow = 'hidden';
   }
 
   // animation for the bill
   isShown = signal(false);
   toggle() {
     this.isShown.update((isShown)=> !isShown);
-    this.displayBill();
+    
+    if (this.isShown()) {
+      this.displayBill();
+    } else {
+      // Closing the bill
+      this.isBillVisible = false;
+      // Re-enable scroll
+      document.body.style.overflow = 'auto';
+    }
   }
 
   // getter for checking if bill should show
@@ -95,6 +123,8 @@ export class Home implements OnInit{
     // reset the flag when cart empties
     if (!hasItems) {
       this.isBillVisible = false;
+      // Re-enable scroll when bill auto-closes
+      document.body.style.overflow = 'auto';
     }
     return this.isBillVisible && hasItems;
   }

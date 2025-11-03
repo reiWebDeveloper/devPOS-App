@@ -32,7 +32,7 @@
         *ngFor="let product of selectedCategory?.products; let i = index"
         (click)="toggleProductSelection(product, i)"
         [style.background-color]="getProductColor(i)"
-        [class.selected]="selectedProducts.has(i)">
+        [class.selected]="isProductSelected(product)">
       <p class="unitPriceContainer"><span class="unit-price"><!--Product Price-->{{ product.unitPrice }}</span><span id="unitCurrency"> lekë</span> </p>
       <div class="first-letter">{{ product.name.charAt(0) }}</div>
       <p class="product-name"><!--Product Name--> {{ product.name }}</p>

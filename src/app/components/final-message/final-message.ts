@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class FinalMessage {
 
+  //TODO: ADD THE LOGIG FOR THE CLOSE BUTTON
 }
