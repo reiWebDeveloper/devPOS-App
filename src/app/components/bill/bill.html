@@ -1,7 +1,7 @@
 <div class="billContainer">
 
     <div class="main grid" *ngFor="let item of billService.getData()">
-        <p class="itemName">{{item.product.name}}</p>
+        <div class="element"><p class="itemName">{{item.product.name}}</p></div>
         
         <div class="quantity">
             <div class="decrease" (click)="billService.decreaseQuantity(item.product)">-</div>
@@ -9,16 +9,14 @@
             <div class="increase" (click)="billService.increaseQuantity(item.product)">+</div>
         </div>
 
-        <p class="prodPrice">{{item.product.unitPrice*item.quantity}}</p>
+        <div class="element"><p class="prodPrice">{{item.product.unitPrice*item.quantity}}</p></div>
 
     </div>
     <div class="line"></div>
     <div class="main grid">
         <p class="textTotal">totali</p>
         <p class="text"></p>
-
         <p class="textTotalPrice">{{ totalPrice }}</p>
-
     </div>
     <div class="btn" (click)="displayFinalMessage()">
         <p class="textBtn">Dërgo Faturën</p>

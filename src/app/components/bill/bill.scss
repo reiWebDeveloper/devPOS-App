@@ -23,7 +23,7 @@ $font-size: 24px;
 
 .grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
     text-transform: uppercase;
     align-items: center;
     gap: 10px;
@@ -39,7 +39,7 @@ $font-size: 24px;
 }
 
 .itemName, .textTotal {
-    margin: 0 45px 0 5px;
+    margin: 0 0 0 15px;
 }
 
 .line {
@@ -60,9 +60,13 @@ $font-size: 24px;
 }
 
 .textTotalPrice {
-    margin: 0 0 0 35px;
+    margin: 0 0 0 15px;
 }
 
+.element {
+    display: flex;
+    justify-content: flex-start;
+}
 
 .prodPrice, .textTotalPrice {
     font-family: $font;

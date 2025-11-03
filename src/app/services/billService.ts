@@ -47,10 +47,10 @@ export class BillService {
         const item = this.items.find(i => i.product.name === product.name);
         if (item) {
             // check if there is at least one item
-            if (item.quantity > 1) {
+            if (item.quantity > 0) {
             item.quantity--;
             } else {
-            // remove item if quantity go to 0
+            // remove item if quantity go to -1
             this.removeItem(product);
             }
         }
