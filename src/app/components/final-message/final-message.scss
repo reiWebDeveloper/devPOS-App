@@ -1,0 +1,53 @@
+@use '../../../variables.scss' as*;
+:host {
+    position: fixed; //to overlay everything
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.finalMsgContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: whitesmoke;
+    margin: 0 8px;
+    padding: 25px 0;
+
+    .msgTxt {
+        text-transform: uppercase;
+        font-size: 24px;
+        font-family: $font;
+        font-weight: $font-weight;
+        padding: 0 15px;
+        text-align: center;
+        margin: 0;
+        color: #666666;
+    }
+}
+
+.msgBtn {
+    width: 328px;
+    height: 51px;
+    background-color: $red-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 40px;
+
+    .textBtn {
+        text-transform: uppercase;
+        font-family: $font;
+        font-size: 24px;
+        font-weight: $font-weight;
+    }
+}

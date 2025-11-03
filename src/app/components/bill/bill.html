@@ -20,9 +20,10 @@
         <p class="textTotalPrice">{{ totalPrice }}</p>
 
     </div>
-    <div class="btn">
+    <div class="btn" (click)="displayFinalMessage()">
         <p class="textBtn">Dërgo Faturën</p>
     </div>
 
 </div>
 
+<app-final-message *ngIf="isVisible"></app-final-message>
