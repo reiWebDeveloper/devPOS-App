@@ -55,7 +55,7 @@
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0;
+    margin: 0 0 60px 0;
     padding: 0;
 }
 
@@ -64,27 +64,37 @@
     height: 195px;
     background-color: aquamarine;
     position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0; // makes the top, right, bottom and left property to 0
+        transition: background-color 0.3s ease;
+    }
+
+    // when selected, fade in gray overlay
+    &.selected::after {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
 }
 
 .navigationBar {
     display: flex;
-    flex-direction: row;
+    // keeps <li> items on one line (no wrapping)
+    flex-wrap: nowrap;
     gap: 20px;
     text-decoration: none;
     list-style-type: none;
     background-color: #999999;
     padding: 15px;
     margin: 0;
-    //make the navigation menu scroallable
-    overflow: auto;
-    white-space: nowrap;
+    overflow-x: auto; //enables horizontal scroll
     //remove the scrollbar
     &::-webkit-scrollbar {
     display: none;
   }
-}
 
-.navigationBar {
     li {
         text-transform: uppercase;
         text-align: center;
@@ -93,6 +103,10 @@
         font-size: 20px;
         width: max-content;
         color: #333333;
+        // keeps the text inside on one line
+        white-space: nowrap;
+        // makes each list item exactly as wide as its text
+        width: max-content;
     }
 
     li.active {
@@ -161,7 +175,7 @@
     align-items: center;
     justify-content: center;
 
-    // Creating the zigzag shape in the cart
+    // Creating the zigzag shape in the cart icon
     clip-path: polygon(
         0% 10%, 10% 0%, 20% 10%, 30% 0%, 40% 10%, 50% 0%, 
         60% 10%, 70% 0%, 80% 10%, 90% 0%, 100% 10%, 
@@ -197,5 +211,21 @@ footer {
         font-weight: 300;
         font-size: 17px;
         margin-right: 20px;
+    }
+}
+
+//bill animation
+.enter-animation {
+    animation: slide-in 0.6s;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(190px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

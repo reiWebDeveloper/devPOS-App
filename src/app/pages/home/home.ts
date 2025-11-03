@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Data } from '../../data';
 import { CommonModule } from '@angular/common';
 import { Category } from '../../models/menu.model';
@@ -46,18 +46,27 @@ export class Home implements OnInit{
     // move the selected element to start with scrollIntoView() method
     const target = (event?.target as HTMLElement);
     target?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'start'
+      behavior: 'smooth', //scroll behaviour
+      block: 'nearest', //vertical alignment
+      inline: 'start' //horizontal alignment
     });
+  }
+
+  // keeps track of which product have been clicked
+  selectedProducts: Set<number> = new Set();
+
+  toggleProductSelection(product: Product, index: number): void {
+    this.addDataFromBillService(product);
+    this.displayCart();
+
+    // to mark the product as selected
+    this.selectedProducts.add(index);
   }
 
   addDataFromBillService (product: Product) {
     //add the product data
     this.billService.addData(product);
   }
-
-  //TODO: Add animation for the cart
 
   //display the cart
   isShow = false;
@@ -69,6 +78,15 @@ export class Home implements OnInit{
   isBillVisible = false;
   displayBill() {
     this.isBillVisible = true;
+    // remove all gray overlays
+    this.selectedProducts.clear();
+  }
+
+  // animation for the bill
+  isShown = signal(false);
+  toggle() {
+    this.isShown.update((isShown)=> !isShown);
+    this.displayBill();
   }
 
   // getter for checking if bill should show
@@ -81,7 +99,7 @@ export class Home implements OnInit{
     return this.isBillVisible && hasItems;
   }
 
-  // generate the colors function
+  // generate colors
   private colorPalette = [
     '#ff6b6bb5',
     '#4ECDC4',
