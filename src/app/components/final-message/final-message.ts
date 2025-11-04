@@ -7,7 +7,6 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './final-message.scss',
 })
 export class FinalMessage {
-
   // create an output property
   @Output() close = new EventEmitter<void>();
 

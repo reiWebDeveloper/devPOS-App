@@ -19,7 +19,7 @@ export class Home implements OnInit{
 
   categories: Category[] = [];
   selectedCategory: Category | null = null;
-  //isDarkMode = false; 
+  //isDarkMode = false;
 
   // initialize the Object
   constructor (private data: Data, public billService: BillService) {}

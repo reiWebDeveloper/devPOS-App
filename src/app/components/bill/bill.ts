@@ -20,10 +20,8 @@ export class Bill {
   get totalPrice(): number {
     return this.billService.getData().reduce((sum, item) => sum + item.product.unitPrice*item.quantity, 0);
   }
-
   showFinalMessage() {
     // emit the event
     this.sendBill.emit();
   }
-
 }
