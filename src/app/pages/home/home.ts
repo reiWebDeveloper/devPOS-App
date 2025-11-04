@@ -13,13 +13,13 @@ import { FinalMessage } from '../../components/final-message/final-message';
   imports: [CommonModule, Bill, FinalMessage],
   standalone: true,
   templateUrl: './home.html',
-  styleUrl: './home.scss',
+  styleUrls: ['./home.scss'],
 })
 export class Home implements OnInit{
 
   categories: Category[] = [];
   selectedCategory: Category | null = null;
-  //isDarkMode = false;
+  isDarkMode = false;
 
   // initialize the Object
   constructor (private data: Data, public billService: BillService) {}
@@ -42,17 +42,17 @@ export class Home implements OnInit{
     );
   }
 
-  /* dark mode toggle
+  // dark mode toggle
   darkModeFunction() : void {
     this.isDarkMode = !this.isDarkMode;
-    const container = document.querySelector('.container');
+    const root = document.documentElement;
 
     if (this.isDarkMode) {
-      container?.classList.add('dark-mode');
+      root?.classList.add('dark-mode');
     } else {
-      container?.classList.remove('dark-mode');
+      root?.classList.remove('dark-mode');
     }
-  }*/
+  }
 
   selectCategory(category: Category, event?: Event): void {
     this.selectedCategory = category;
@@ -154,27 +154,14 @@ export class Home implements OnInit{
     document.body.style.overflow = 'auto';
   }
 
-  // generate colors
-  private colorPalette = [
-    '#ff6b6bb5',
-    '#4ECDC4',
-    '#45B7D1',
-    '#FFA07A',
-    '#98D8C8',
-    '#F7DC6F',
-    '#BB8FCE',
-    '#85C1E2',
-    '#F8B739',
-    '#6C5CE7'
-  ];
-
+  // a method for generating infinte colors dynamically
   getProductColor(index: number): string {
-    // cycle through colors if there are more products than colors
-    while (index >= this.colorPalette.length) {
-      // make the index smaller if array length (item list) is bigger
-      index = index - this.colorPalette.length;
-    }
-    return this.colorPalette[index];
+    const totalColors = 10; // number of distinct hues
+    const hue = (index * (360 / totalColors)) % 360; // evenly spread colors
+    const lightness = this.isDarkMode ? 30 : 65;
+    const saturation = this.isDarkMode ? 70 : 80;
+
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
 }
