@@ -66,4 +66,9 @@ export class BillService {
         }
         //-1 means that the product is not found and it cannot be removed
     }
+
+    // clear all cart
+    clearCart(): void {
+        this.items = [];
+    }
 }

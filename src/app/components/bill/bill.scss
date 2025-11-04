@@ -2,13 +2,15 @@
 $font-size: 24px;
 :host {
   position: fixed; //to overlay everything
-  bottom: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: end;
   z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .billContainer {
@@ -35,7 +37,7 @@ $font-size: 24px;
     color: #666666;
     font-size: $font-size;
     font-weight: $font-weight;
-    direction: rtl;
+    
 }
 
 .itemName, .textTotal {
@@ -65,7 +67,10 @@ $font-size: 24px;
 
 .element {
     display: flex;
-    justify-content: flex-start;
+}
+
+.name {
+    direction: rtl;
 }
 
 .prodPrice, .textTotalPrice {

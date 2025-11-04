@@ -1,6 +1,40 @@
+// common
 $red-color: #F44242;
 $icon-size: 64px;
 $font: 'Helvetica', sans-serif;
 $font-weight: 700;
 
-// add the #333333 color as a variable here!
+// light mode (default)
+$background-color: #FFFFFF;
+$text-primary: #333333;
+$text-secondary: #666666;
+$navigation-bg: #999999;
+$footer-bg: #65874D;
+$bill-bg: #F5F5F5;
+$quantity-bg: rgba(223, 221, 221, 0.842);
+$item-overlay: rgba(0, 0, 0, 0.25);
+
+//dark mode
+:root {
+  // Light mode (default)
+  --bg-color: #{$background-color};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --nav-bg: #{$navigation-bg};
+  --footer-bg: #{$footer-bg};
+  --bill-bg: #{$bill-bg};
+  --quantity-bg: #{$quantity-bg};
+  --item-overlay: #{$item-overlay};
+}
+
+// Dark mode overrides
+.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-primary: #E0E0E0;
+  --text-secondary: #B0B0B0;
+  --nav-bg: #2d2d2d;
+  --footer-bg: #3a5028;
+  --bill-bg: #252525;
+  --quantity-bg: rgba(60, 60, 60, 0.842);
+  --item-overlay: rgba(255, 255, 255, 0.15);
+}
