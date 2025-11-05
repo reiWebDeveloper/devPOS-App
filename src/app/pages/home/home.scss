@@ -9,9 +9,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-top: 46px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 62px 10px 10px 10px;
 
     .icon-menuContainer {
         display: flex;
@@ -34,7 +33,7 @@
         font-family: $font;
         font-weight: $font-weight;
         font-size: 24px;
-        color: var(--text-primary);
+        color: var(--header-title-color);
         margin: 0 0 10px 0;
     }
 
@@ -43,16 +42,51 @@
         font-weight: 300;
         font-size: 17px;
         margin: 0;
-        color: var(--text-primary);
+        color: var(--header-title-color);
     }
 
     .switch {
         width: 30px;
         height: 30px;
-        border: 5px solid rgba(51, 51, 51, 1);
+        border: 5px solid var(--switch-color);
         border-radius: 50%;
-        background-image: linear-gradient(rgba(51, 51, 51, 1) 50%, white 50%);
+        background-image: linear-gradient(var(--switch-color) 50%, white 50%);
         transform: rotate(-35deg);
+    }
+}
+
+.navigationBar {
+    display: flex;
+    // keeps <li> items on one line (no wrapping)
+    flex-wrap: nowrap;
+    gap: 20px;
+    text-decoration: none;
+    list-style-type: none;
+    background-color: var(--nav-bg);
+    padding: 15px;
+    margin: 0;
+    overflow-x: auto; //enables horizontal scroll
+    //remove the scrollbar
+    &::-webkit-scrollbar {
+    display: none;
+  }
+
+    li {
+        text-transform: uppercase;
+        text-align: center;
+        font-family: $font;
+        font-weight: $font-weight;
+        font-size: 20px;
+        width: max-content;
+        color: rgba(51, 51, 51, 1);
+        // keeps the text inside on one line
+        white-space: nowrap;
+        // makes each list item exactly as wide as its text
+        width: max-content;
+    }
+
+    li.active {
+        color: $red-color;
     }
 }
 
@@ -79,42 +113,7 @@
 
     // when selected, fade in gray overlay
     &.selected::after {
-        background-color: $item-overlay;
-    }
-}
-
-.navigationBar {
-    display: flex;
-    // keeps <li> items on one line (no wrapping)
-    flex-wrap: nowrap;
-    gap: 20px;
-    text-decoration: none;
-    list-style-type: none;
-    background-color: $navigation-bg;
-    padding: 15px;
-    margin: 0;
-    overflow-x: auto; //enables horizontal scroll
-    //remove the scrollbar
-    &::-webkit-scrollbar {
-    display: none;
-  }
-
-    li {
-        text-transform: uppercase;
-        text-align: center;
-        font-family: $font;
-        font-weight: $font-weight;
-        font-size: 20px;
-        width: max-content;
-        color: var(--text-primary);
-        // keeps the text inside on one line
-        white-space: nowrap;
-        // makes each list item exactly as wide as its text
-        width: max-content;
-    }
-
-    li.active {
-        color: $red-color;
+        background-color: var(--item-overlay);
     }
 }
 
@@ -142,7 +141,7 @@
     //style the outlined letter
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #A93B3B26;
+    -webkit-text-stroke-color: var(--first-letter-color);
 }
 
 .unitPriceContainer {
@@ -156,12 +155,12 @@
     margin: 5px 5px 0 0;
 
     .unit-price {
-        color: $red-color; 
+        color: var(--price-text); 
         font-weight: $font-weight;
         font-size: 21px;
     }
     #unitCurrency {
-        color: $text-secondary;
+        color: var(--text-secondary);
         font-family: $font;
         font-weight: 300;
     }
@@ -209,7 +208,7 @@ footer {
     right: 0;
     width: 100%;
     height: 62px;
-    background-color: $footer-bg;
+    background-color: $light-footer-bg;
     display: flex;
     align-items: center;
     justify-content: end;

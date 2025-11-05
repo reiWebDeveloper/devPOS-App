@@ -3,36 +3,48 @@ $red-color: #F44242;
 $icon-size: 64px;
 $font: 'Helvetica', sans-serif;
 $font-weight: 700;
+$gray-color: #333333;
 
 // light mode (default)
-$background-color: #FFFFFF;
-$text-primary: #333333;
-$text-secondary: #666666;
-$navigation-bg: #999999;
-$footer-bg: #65874D;
-$bill-bg: #F5F5F5;
-$quantity-bg: rgba(223, 221, 221, 0.842);
-$item-overlay: rgba(0, 0, 0, 0.25);
+$light-background: #FFFFFF;
+$light-switch-color: $gray-color;
+$light-header-title-color: $gray-color;
+$light-text-primary: $gray-color;
+$light-first-letter-color: #A93B3B26;
+$light-text-secondary: #666666;
+$light-price-text: $red-color; 
+$light-nav-bg: #999999;
+$light-footer-bg: #65874D;
+$light-bill-bg: #F5F5F5;
+$light-quantity-bg: rgba(223, 221, 221, 0.842);
+$light-item-overlay: rgba(0, 0, 0, 0.25);
 
 //dark mode
 :root {
   // Light mode (default)
-  --bg-color: #{$background-color};
-  --text-primary: #{$text-primary};
-  --text-secondary: #{$text-secondary};
-  --nav-bg: #{$navigation-bg};
-  --footer-bg: #{$footer-bg};
-  --bill-bg: #{$bill-bg};
-  --quantity-bg: #{$quantity-bg};
-  --item-overlay: #{$item-overlay};
+  --bg-color: #{$light-background};
+  --switch-color: #{$light-switch-color};
+  --header-title-color: #{$light-header-title-color};
+  --text-primary: #{$light-text-primary};
+  --first-letter-color: #{$light-first-letter-color};
+  --text-secondary: #{$light-text-secondary};
+  --price-text: #{$light-price-text};
+  --nav-bg: #{$light-nav-bg};
+  --footer-bg: #{$light-footer-bg};
+  --bill-bg: #{$light-bill-bg};
+  --quantity-bg: #{$light-quantity-bg};
+  --item-overlay: #{$light-item-overlay};
 }
 
 // Dark mode overrides
 .dark-mode {
-  --bg-color: #1a1a1a;
-  --text-primary: #E0E0E0;
+  --bg-color: #333333;
+  --switch-color: #999999;
+  --header-title-color: #999999;
+  --text-primary: #D4D4D0;
+  --first-letter-color: #6b6b6b91;
   --text-secondary: #B0B0B0;
-  --nav-bg: #2d2d2d;
+  --price-text: #0BC0BE;
   --footer-bg: #3a5028;
   --bill-bg: #252525;
   --quantity-bg: rgba(60, 60, 60, 0.842);
