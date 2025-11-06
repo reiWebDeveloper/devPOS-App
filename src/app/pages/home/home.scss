@@ -3,6 +3,10 @@
 .container {
     background-color: var(--bg-color);
     min-height: 100vh;
+
+    @include desktop {
+        max-width: fit-content;
+    }
 }
 
 .headerContent {
@@ -53,6 +57,10 @@
         border-radius: 50%;
         background-image: linear-gradient(var(--switch-color) 50%, white 50%);
         transform: rotate(-35deg);
+
+        @include desktop {
+            cursor: pointer;
+        }
     }
 }
 
@@ -84,6 +92,13 @@
         white-space: nowrap;
         // makes each list item exactly as wide as its text
         width: max-content;
+
+        @include desktop {
+            cursor: pointer;
+            &:hover {
+                color: rgba(51, 51, 51, 0.651);
+            }
+        }
     }
 
     li.active {
@@ -96,6 +111,16 @@
     grid-template-columns: 1fr 1fr;
     margin: 0 0 60px 0;
     padding: 0;
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .item {
@@ -115,6 +140,15 @@
     // when selected, fade in gray overlay
     &.selected::after {
         background-color: var(--item-overlay);
+    }
+
+    @include tablet {
+        width: 100%;
+    }
+
+    @include desktop {
+        width: 100%;
+        cursor: pointer;
     }
 }
 
@@ -174,6 +208,13 @@
     bottom: 66px;
     display: inline-block;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    @include desktop {
+        cursor: pointer;
+        width: max-content;
+        height: max-content;
+        right: 13em;
+    }
 }
 
 .cart {
@@ -231,7 +272,7 @@ footer {
 @keyframes slide-in {
     from {
         opacity: 0;
-        transform: translateY(60px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;

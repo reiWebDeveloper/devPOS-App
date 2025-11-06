@@ -1,2 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @use './variables' as *;
+
+body {
+    margin:0;
+    padding: 0;
+    background-color: var(--bg-color);
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

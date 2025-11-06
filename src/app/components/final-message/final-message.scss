@@ -44,6 +44,18 @@
     color: white;
     margin-top: 40px;
 
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    @include desktop {
+        cursor: pointer;
+    }
+
     .textBtn {
         text-transform: uppercase;
         font-family: $font;

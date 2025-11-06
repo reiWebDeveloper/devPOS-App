@@ -50,3 +50,16 @@ $light-item-overlay: rgba(0, 0, 0, 0.25);
   --quantity-bg: rgba(60, 60, 60, 0.842);
   --item-overlay: rgba(255, 255, 255, 0.15);
 }
+
+//mixin use for responsive design
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
