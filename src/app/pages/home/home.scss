@@ -267,7 +267,11 @@ footer {
     }
 
     #footerImg {
-        height: 3em;
+        height: 2.5em;
+
+        @include desktop {
+            height: 3em;
+        }
     }
     p {
         margin-bottom: 5px;
