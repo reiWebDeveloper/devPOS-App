@@ -264,7 +264,6 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8px;
     }
 
     #footerImg {
@@ -272,6 +271,7 @@ footer {
     }
     p {
         margin-bottom: 5px;
+        margin-right: 5px;
     }
 }
 
