@@ -30,7 +30,7 @@
     <!--Product container-->
     <div class="item"
         *ngFor="let product of selectedCategory?.products; let i = index"
-        (click)="toggleProductSelection(product, i)"
+        (click)="toggleProductSelection(product)"
         [style.background-color]="getProductColor(i)"
         [class.selected]="isProductSelected(product)">
       <p class="unitPriceContainer"><span class="unit-price"><!--Product Price-->{{ product.unitPrice }}</span><span id="unitCurrency"> lekë</span> </p>
@@ -52,6 +52,10 @@
 
     <div class="footerMsg">
       <p>mundësuar nga</p>
+      <!--<span id="whitecircle">&lt;/•&gt;</span>
+      <span id="dev">dev</span>
+      <span id="pos">pos</span>-->
+      <img id="footerImg" src="/img/devPOS_img.png" alt="icon of the devPOS" />
     </div>
 
   </footer>

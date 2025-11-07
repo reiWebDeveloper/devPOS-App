@@ -1,26 +1,32 @@
 <div class="billContainer">
 
-    <div class="main grid" *ngFor="let item of billService.getData()">
-        <div class="element name"><p class="itemName">{{item.product.name}}</p></div>
-        
-        <div class="quantity">
-            <div class="decrease" (click)="billService.decreaseQuantity(item.product)">-</div>
-            <p class="number">{{item.quantity}}</p>
-            <div class="increase" (click)="billService.increaseQuantity(item.product)">+</div>
+    <div class="test">
+        <div class="itemsWrapper">
+            <div class="main grid" *ngFor="let item of billService.getData()">
+                <div class="element name"><p class="itemName">{{item.product.name}}</p></div>
+                
+                <div class="quantity">
+                    <div class="decrease" (click)="billService.decreaseQuantity(item.product)">-</div>
+                    <p class="number">{{item.quantity}}</p>
+                    <div class="increase" (click)="billService.increaseQuantity(item.product)">+</div>
+                </div>
+
+                <div class="element price"><p class="prodPrice">{{item.product.unitPrice*item.quantity}}</p></div>
+            </div>
         </div>
 
-        <div class="element price"><p class="prodPrice">{{item.product.unitPrice*item.quantity}}</p></div>
-
-    </div>
-    <div class="line"></div>
-    <div class="main grid">
-        <p class="textTotal name">totali</p>
-        <p class="text"></p>
-        <p class="textTotalPrice">{{ totalPrice }}</p>
-    </div>
-
-    <div class="btn" (click)="showFinalMessage()">
-        <p class="textBtn">Dërgo Faturën</p>
+        <div class="billFooter">
+            <div class="line"></div>
+            <div class="main grid">
+                <p class="textTotal name">totali</p>
+                <p class="text"></p>
+                <p class="textTotalPrice">{{ totalPrice }}</p>
+            </div>
+            
+            <div class="btn" (click)="showFinalMessage()">
+                <p class="textBtn">Dërgo Faturën</p>
+            </div>
+        </div>
     </div>
 
 </div>

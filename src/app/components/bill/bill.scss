@@ -1,26 +1,61 @@
 @use '../../../variables.scss' as*;
 $font-size: 24px;
+
 :host {
-  position: fixed; //to overlay everything
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.55);
+    left: 0;
+    top: 0;
 }
 
 .billContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 390px;
+    max-height: 80vh; 
+    overflow: hidden;
+
+    @include desktop {
+        position: fixed;
+        min-height: 100vh;
+        min-width: 100vw;
+        background-color: rgba(0, 0, 0, 0.55);
+        left: 0;
+        top: 0;
+        transform: translate(-50% -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+// Scrollable area for items if exceeds the screen height
+.itemsWrapper {
+    overflow-y: auto; // make the section scrollable
+    max-height: calc(80vh - 200px); // leave space for total and button
+    padding-bottom: 10px;
+
+    @include desktop {
+        width: fit-content;
+        background-color: whitesmoke;
+    }
+}
+
+.billFooter {
+    background-color: whitesmoke;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: whitesmoke;
-    width: 390px;
-    height: auto;
-    padding-bottom: 10px;
+    justify-content: center;
 }
 
 .grid {
@@ -37,7 +72,6 @@ $font-size: 24px;
     color: #666666;
     font-size: $font-size;
     font-weight: $font-weight;
-    
 }
 
 .itemName, .textTotal {
@@ -46,10 +80,10 @@ $font-size: 24px;
 
 .line {
     width: 90%;
-    margin: 0 50px;
     height: 2px;
     background-color: black;
 }
+
 .quantity {
     width: 90px;
     height: 42px;
@@ -59,6 +93,13 @@ $font-size: 24px;
     align-items: center;
     margin-right: 10px;
     gap: 15px;
+}
+
+.decrease, .increase {
+    cursor: pointer;
+    user-select: none;
+    font-size: 20px;
+    transition: transform 0.1s ease;
 }
 
 .textTotalPrice {
@@ -88,7 +129,17 @@ $font-size: 24px;
     justify-content: center;
     align-items: center;
     color: white;
-    margin-top: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
 
     .textBtn {
         text-transform: uppercase;

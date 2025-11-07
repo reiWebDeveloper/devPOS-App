@@ -69,7 +69,7 @@ export class Home implements OnInit{
   // keeps track of which product have been clicked
   selectedProducts: Set<string> = new Set();
 
-  toggleProductSelection(product: Product, index: number): void {
+  toggleProductSelection(product: Product): void {
     this.addDataFromBillService(product);
     this.displayCart();
 
@@ -148,13 +148,13 @@ export class Home implements OnInit{
     this.billService.clearCart();
     // hide cart icon
     this.isShow = false;
-    // Clear selected products overlay
+    // clear selected products overlay
     this.selectedProducts.clear();
     // Re-enable scroll
     document.body.style.overflow = 'auto';
   }
 
-  // a method for generating infinte colors dynamically
+  // a method for generating colors dynamically
   getProductColor(index: number): string {
     const totalColors = 10; // number of distinct hues
     const hue = (index * (360 / totalColors)) % 360; // evenly spread colors
